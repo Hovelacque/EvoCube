@@ -26,11 +26,11 @@ function columnToLine(faces: Record<Face, FaceMatrix>, column: Color[], face: Fa
     faces[face][line][2] = column[2]
 };
 
-function getColumn(faces: Record<Face, FaceMatrix>, face: Face, column: number): Color[] {
+function getColumn(face: FaceMatrix, column: number): Color[] {
     return [
-        faces[face][0][column],
-        faces[face][1][column],
-        faces[face][2][column]
+        face[0][column],
+        face[1][column],
+        face[2][column]
     ];
 };
 
@@ -48,14 +48,14 @@ function moveUi(faces: Record<Face, FaceMatrix>) {
 }
 
 function moveF(faces: Record<Face, FaceMatrix>) {
-    
+
 }
 
 function moveFi(faces: Record<Face, FaceMatrix>) {
     const u2 = structuredClone(faces.U[2]);
-    columnToLine(faces, getColumn(faces, 'R', 0), 'U', 2)
+    columnToLine(faces, getColumn(faces.R, 0), 'U', 2)
     lineToColumn(faces, faces.D[0], 'R', 0)
-    columnToLine(faces, getColumn(faces, 'L', 2), 'D', 0)
+    columnToLine(faces, getColumn(faces.L, 2), 'D', 0)
     lineToColumn(faces, u2, 'L', 2)
     rotateFaceAntiClockwise(faces, 'F')
 }
