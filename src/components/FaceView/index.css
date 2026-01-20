@@ -1,0 +1,10 @@
+.face {
+  height: 154px;
+  width: 154px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  justify-items: center;
+  align-items: center;
+}

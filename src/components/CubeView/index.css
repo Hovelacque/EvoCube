@@ -1,0 +1,13 @@
+.cube {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+.empty {
+  height: 154px;
+  width: 154px;
+}
