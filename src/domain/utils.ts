@@ -9,13 +9,14 @@ function createFace(color: Color): FaceMatrix {
 
 export function createSolvedCube(): Record<Face, FaceMatrix> {
     return {
-        U: [
-            [Colors.Blue, Colors.Blue, Colors.Blue],
-            [Colors.Red, Colors.Green, Colors.White],
-            [Colors.Red, Colors.Yellow, Colors.White],
-        ],
+        U: createFace(Colors.White),
         D: createFace(Colors.Yellow),
-        F: createFace(Colors.Green),
+        F:
+            [
+                [Colors.Blue, Colors.Blue, Colors.Blue],
+                [Colors.Red, Colors.Green, Colors.White],
+                [Colors.Red, Colors.Yellow, Colors.White],
+            ], //createFace(Colors.Green),
         B: createFace(Colors.Blue),
         L: createFace(Colors.Orange),
         R: createFace(Colors.Red)

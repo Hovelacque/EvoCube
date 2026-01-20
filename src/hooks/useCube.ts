@@ -5,10 +5,10 @@ import type { Move } from '../domain/types';
 export function useCube() {
   const [cube, setCube] = useState(() => new Cube());
 
-  function applyMove(move: Move) {
+  function applyMove(moves: Move[]) {
     setCube(prev => {
       const next = prev.clone();
-      next.move(move);
+      moves.map((move) => next.move(move))
       return next;
     });
   }

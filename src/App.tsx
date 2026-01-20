@@ -9,7 +9,10 @@ function App() {
     <>
       <div className="card">
         <CubeView cube={cube} />
-        <button onClick={()=>applyMove('U')}>U</button>
+        <button onClick={()=>applyMove(["U"])}>U</button>
+        <button onClick={()=>applyMove(["U'"])}>U'</button>
+        <button onClick={()=>applyMove(["F"])}>F</button>
+        <button onClick={()=>applyMove(["F'"])}>F'</button>
         <button onClick={()=>cube.isCompleted()}>C</button>
       </div>
     </>
