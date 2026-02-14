@@ -19,6 +19,8 @@ function App() {
         <button onClick={()=>applyMove(["R'"])}>R'</button>
         <button onClick={()=>applyMove(["L"])}>L</button>
         <button onClick={()=>applyMove(["L'"])}>L'</button>
+        <button onClick={()=>applyMove(["B"])}>B</button>
+        <button onClick={()=>applyMove(["B'"])}>B'</button>
         <button onClick={()=>cube.isCompleted()}>C</button>
       </div>
     </>
