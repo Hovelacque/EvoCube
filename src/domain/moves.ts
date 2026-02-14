@@ -131,6 +131,24 @@ function moveRi(faces: Record<Face, FaceMatrix>) {
     rotateFaceAntiClockwise(faces, 'R')
 }
 
+function moveL(faces: Record<Face, FaceMatrix>) {
+    const u0 = getColumn(faces.U, 0)
+    columnToColumn(faces, getColumn(faces.B, 2), 'U', 0, true)
+    columnToColumn(faces, getColumn(faces.D, 0), 'B', 2, true)
+    columnToColumn(faces, getColumn(faces.F, 0), 'D', 0)
+    columnToColumn(faces, u0, 'F', 0)
+    rotateFaceClockwise(faces, 'L')
+}
+
+function moveLi(faces: Record<Face, FaceMatrix>) {
+    const u0 = getColumn(faces.U, 0)
+    columnToColumn(faces, getColumn(faces.F, 0), 'U', 0)
+    columnToColumn(faces, getColumn(faces.D, 0), 'F', 0)
+    columnToColumn(faces, getColumn(faces.B, 2), 'D', 0, true)
+    columnToColumn(faces, u0, 'B', 2, true)
+    rotateFaceAntiClockwise(faces, 'L')
+}
+
 export function applyMove(faces: Record<Face, FaceMatrix>, move: Move) {
     switch (move) {
         case Moves.u: moveU(faces); break;
@@ -141,5 +159,7 @@ export function applyMove(faces: Record<Face, FaceMatrix>, move: Move) {
         case Moves.di: moveDi(faces); break;
         case Moves.r: moveR(faces); break;
         case Moves.ri: moveRi(faces); break;
+        case Moves.l: moveL(faces); break;
+        case Moves.li: moveLi(faces); break;
     }
 }
