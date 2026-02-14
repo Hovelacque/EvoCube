@@ -19,6 +19,19 @@ function columnToLineClockwise(faces: Record<Face, FaceMatrix>, column: Color[],
     faces[face][line][2] = column[0]
 };
 
+function columnToColumn(faces: Record<Face, FaceMatrix>, column: Color[], face: Face, pos: number, reverse: boolean = false) {
+    if (reverse) {
+        faces[face][0][pos] = column[2]
+        faces[face][1][pos] = column[1]
+        faces[face][2][pos] = column[0]
+    }
+    else {
+        faces[face][0][pos] = column[0]
+        faces[face][1][pos] = column[1]
+        faces[face][2][pos] = column[2]
+    }
+};
+
 function rotateFaceAntiClockwise(faces: Record<Face, FaceMatrix>, face: Face) {
     let copyMatrix = structuredClone(faces);
     faces[face] = copyMatrix[face].map((row, i) =>
@@ -100,6 +113,24 @@ function moveDi(faces: Record<Face, FaceMatrix>) {
     faces.L[2] = f2;
 }
 
+function moveR(faces: Record<Face, FaceMatrix>) {
+    const u2 = getColumn(faces.U, 2)
+    columnToColumn(faces, getColumn(faces.F, 2), 'U', 2)
+    columnToColumn(faces, getColumn(faces.D, 2), 'F', 2)
+    columnToColumn(faces, getColumn(faces.B, 0), 'D', 2, true)
+    columnToColumn(faces, u2, 'B', 0, true)
+    rotateFaceClockwise(faces, 'R')
+}
+
+function moveRi(faces: Record<Face, FaceMatrix>) {
+    const u2 = getColumn(faces.U, 2)
+    columnToColumn(faces, getColumn(faces.B, 0), 'U', 2, true)
+    columnToColumn(faces, getColumn(faces.D, 2), 'B', 0, true)
+    columnToColumn(faces, getColumn(faces.F, 2), 'D', 2)
+    columnToColumn(faces, u2, 'F', 2)
+    rotateFaceAntiClockwise(faces, 'R')
+}
+
 export function applyMove(faces: Record<Face, FaceMatrix>, move: Move) {
     switch (move) {
         case Moves.u: moveU(faces); break;
@@ -108,5 +139,7 @@ export function applyMove(faces: Record<Face, FaceMatrix>, move: Move) {
         case Moves.fi: moveFi(faces); break;
         case Moves.d: moveD(faces); break;
         case Moves.di: moveDi(faces); break;
+        case Moves.r: moveR(faces); break;
+        case Moves.ri: moveRi(faces); break;
     }
 }
