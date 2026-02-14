@@ -11,12 +11,7 @@ export function createSolvedCube(): Record<Face, FaceMatrix> {
     return {
         U: createFace(Colors.White),
         D: createFace(Colors.Yellow),
-        F:
-            [
-                [Colors.Blue, Colors.Blue, Colors.Blue],
-                [Colors.Red, Colors.Green, Colors.White],
-                [Colors.Red, Colors.Yellow, Colors.White],
-            ], //createFace(Colors.Green),
+        F: createFace(Colors.Green),
         B: createFace(Colors.Blue),
         L: createFace(Colors.Orange),
         R: createFace(Colors.Red)

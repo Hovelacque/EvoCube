@@ -183,3 +183,26 @@ export function applyMove(faces: Record<Face, FaceMatrix>, move: Move) {
         case Moves.bi: moveBi(faces); break;
     }
 }
+
+export function randomMove(count: number = 1): Move[] {
+    let moves: Move[] = [], c = 0;
+    while (c < count) {
+        const random = Math.floor(Math.random() * 11)
+        switch (random) {
+            case 0: moves.push(Moves.u); break;
+            case 1: moves.push(Moves.ui); break;
+            case 2: moves.push(Moves.f); break;
+            case 3: moves.push(Moves.fi); break;
+            case 4: moves.push(Moves.d); break;
+            case 5: moves.push(Moves.di); break;
+            case 6: moves.push(Moves.r); break;
+            case 7: moves.push(Moves.ri); break;
+            case 8: moves.push(Moves.l); break;
+            case 9: moves.push(Moves.li); break;
+            case 10: moves.push(Moves.b); break;
+            case 11: moves.push(Moves.bi); break;
+        }
+        c++;
+    }
+    return moves;
+}

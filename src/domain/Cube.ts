@@ -19,17 +19,23 @@ export class Cube {
         return clone;
     }
 
-    faceCompleted(face: Face): boolean {
-        let completed = true, center = this.faces[face][1][1];
-        for (let i = 0; i < this.faces[face].length; i++)
-            for (let j = 0; j < this.faces[face][i].length; j++)
-                if (completed)
-                    completed = this.faces[face][i][j] == center;
-        return completed;
+    faceCompleted(face: FaceMatrix): boolean {
+        const center = face[1][1];
+        for (let i = 0; i < face.length; i++)
+            for (let j = 0; j < face[i].length; j++)
+                if (face[i][j] != center)
+                    return false;
+        return true;
     }
 
     isCompleted(): boolean {
-        return this.faceCompleted('F') &&
-            this.faceCompleted('U')
+        return (
+            this.faceCompleted(this.faces.U) &&
+            this.faceCompleted(this.faces.F) &&
+            this.faceCompleted(this.faces.D) &&
+            this.faceCompleted(this.faces.B) &&
+            this.faceCompleted(this.faces.R) &&
+            this.faceCompleted(this.faces.L)
+        )
     }
 }
