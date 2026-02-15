@@ -1,0 +1,9 @@
+.card {
+    padding: 2em;
+    background-color: black;
+}
+
+.title {
+    color: white;
+    font-size: 25px;
+}
