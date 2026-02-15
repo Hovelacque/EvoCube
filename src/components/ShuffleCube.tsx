@@ -16,6 +16,7 @@ export default () => {
     return (
         <CubeCard
             title='Shuffle Cube'
+            size='sm'
             cube={cube}
             container={
                 <>

@@ -2,10 +2,11 @@ import { Colors, type Color } from '../../domain/types';
 import './index.css';
 
 type TileProps = {
-    color: Color
+    color: Color,
+    size: 'sm' | 'lg'
 };
 
-export default ({ color }: TileProps) => {
+export default ({ color, size }: TileProps) => {
 
     function getColor(): string {
         switch (color) {
@@ -19,7 +20,7 @@ export default ({ color }: TileProps) => {
     }
 
     return (
-        <div className="item" style={{
+        <div className={size == 'sm' ? 'item-sm' : 'item'} style={{
             backgroundColor: getColor()
         }}></div>
     );

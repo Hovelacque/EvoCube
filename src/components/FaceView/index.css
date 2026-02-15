@@ -8,3 +8,14 @@
   justify-items: center;
   align-items: center;
 }
+
+.face-sm {
+  height: 40px;
+  width: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  justify-items: center;
+  align-items: center;
+}

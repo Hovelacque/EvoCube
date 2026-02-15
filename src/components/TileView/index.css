@@ -4,3 +4,10 @@
     border-radius: 10px;
     border: 1px solid;
 }
+
+.item-sm {
+    height: 12px;
+    width: 12px;
+    border-radius: 3px;
+    border: 1px solid;
+}

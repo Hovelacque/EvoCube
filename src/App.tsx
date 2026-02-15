@@ -5,11 +5,14 @@ import ShuffleCube from './components/ShuffleCube';
 
 function App() {
   return (
-    <>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'row'
+    }}>
       <MoveCube />
       <RandomCube />
       <ShuffleCube />
-    </>
+    </div>
   )
 }
 

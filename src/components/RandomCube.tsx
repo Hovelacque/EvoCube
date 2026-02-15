@@ -7,6 +7,7 @@ export default () => {
     return (
         <CubeCard
             title='Random Cube'
+            size='sm'
             cube={cube}
             container={
                 <button onClick={() => resolve()}>Resolve</button>
