@@ -1,4 +1,5 @@
 import './App.css'
+import EvolutionCube from './components/EvolutionCube';
 import MoveCube from './components/MoveCube';
 import RandomCube from './components/RandomCube';
 import ShuffleCube from './components/ShuffleCube';
@@ -9,9 +10,12 @@ function App() {
       display: 'flex',
       flexDirection: 'row'
     }}>
+      {/* 
       <MoveCube />
       <RandomCube />
-      <ShuffleCube />
+      <ShuffleCube /> 
+      */}
+      <EvolutionCube />
     </div>
   )
 }
